@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+html {
+    font-family: 楷体;
+    width: 100%;
+    height: 100%;
+    background: hsla(272, 66%, 17%, 0.79);
+}
+
+.clearBoth {
+    clear: both;
+}
+
+.beijing {
+    width: 100%;
+    height: 100%;
+    filter: blur(40px);
+    position: absolute;
+}
+
+.beijing1 {
+    width: 100%;
+    height: 100%;
+    background: hsla(272, 66%, 17%, 0.3);
+}
+
+.box {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    left: 50%;
+    top: 40%;
+    margin-top: -300px;
+    margin-left: -300px;
+    z-index: 1;
+    padding: 10px;
+    color: rgba(248, 248, 248, 0.95);
+}
+
+.boxTop, .boxBottom {
+    width: 100%;
+}
+
+.boxTop {
+    height: 200px;
+}
+
+.boxBottom {
+    margin-top: 10px;
+    height: 390px;
+}
+
+img {
+    height: 100%;
+    border-radius: 50%;
+    float: left;
+    width: 200px;
+}
+
+.content {
+    height: 100%;
+    width: 380px;
+    float: right;
+    padding: 0 5px;
+}
+
+.name {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.time {
+    margin-bottom: 10px;
+    float: right;
+}
+
+.progress {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(225, 225, 225, .2);
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+
+.jd-progress {
+    height: 2px;
+    width: 0;
+    background-color: rgba(255, 255, 225, .8);
+    cursor: pointer;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: -4px;
+    margin-left: -4px;
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+}
+
+.but {
+    margin-top: 20px;
+    float: left;
+}
+
+.but span {
+    display: inline-block;
+    width: 25px;
+    height: 29px;
+    background: url("1.png");
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.but span:nth-of-type(1) {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+    background-position-y: -31px;
+}
+
+.but span:nth-of-type(3) {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+    background-position-y: -52px;
+}
+.but .pattern{
+    background-position-y: -205px;
+    width: 27px;
+    height: 24px;
+}
+.but span:nth-of-type(5) {
+    width: 25px;
+    height: 20px;
+    margin-left: 40px;
+    margin-bottom: 3px;
+    margin-right: 0;
+    background-position-y: -145px;
+}
+
+.volume {
+    position: relative;
+    width: 100px;
+    height: 2px;
+    background-color: rgba(225, 225, 225, .2);
+    cursor: pointer;
+    float: right;
+    margin-top: 35px;
+}
+
+.dq-volume {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(225, 225, 225, .8);
+    cursor: pointer;
+}
+
+.circle-volume {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: -4px;
+    margin-left: -4px;
+    position: absolute;
+    cursor: pointer;
+    left: 100px;
+}
+
+.list li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #d1c7d4;
+    text-indent: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.list li span{
+    float: right;
+    margin-right: 20px;
+}
+.list li p{
+    display: inline-block;
+    margin: 0 auto;
+}
+.list li:hover{
+    color: #3b3b3b;
+}
+.list .xuanzhong{
+    color: #481d21;
+    border-bottom: 1px rgba(255, 255, 255, .2) solid;
+}
