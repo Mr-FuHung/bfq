@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>我的音乐</title>
     <link rel="stylesheet" href="myMusic.css">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 </head>
+
 <body>
-<div class="beijing">
-    <div class="beijing1"></div>
-</div>
-<div class="box">
-    <div class="boxTop">
-        <img src="" alt="">
-        <div class="content">
-            <div class="name"></div>
-            <div class="time"><span class="dq-time">00:00</span>/<span class="z-time">00:00</span></div>
-            <div class="progress">
-                <div class="jd-progress">
-                    <div class="circle"></div>
+
+    <div id="app">
+        <div class="beijing" :style="{background: 'url(' + imgSrc + ')  no-repeat 0px 40% / 100% 170% '}">
+            <div class="beijing1"></div>
+        </div>
+        <div class="box">
+            <div class="boxTop">
+                <img :src="imgSrc" alt="封面" title="封面" :class="{rotate:start}">
+                <div class="content">
+                    <div class="name">{{title}}</div>
+                    <div class="time">
+                        <span>{{minutesed<10? '0'+minutesed:minutesed}}:{{seconded<10? '0'+seconded:seconded}}</span>
+                        /
+                        <span>{{minutes<10? '0'+minutes:minutes}}:{{second<10? '0'+second:second}}</span>
+                    </div>
+                    <div ref="progress" class="progress" @click.self='change_progress'>
+                        <div :style='{width:nowProgress+"px"}' ref="now_progress" @click.self='change_progress'
+                            style="height: 4px;background-color:#fff;cursor:pointer">
+                            <div :style='{left:nowProgress+"px"}' ref="round_now_progress" @mousedown.self='progressMousedown' style="width: 15px;
+                            height: 15px;
+                            border-radius: 50%;
+                            background-color: #fff;
+                            margin-top: -6px;
+                            margin-left: -4px;
+                            position: absolute;
+                            cursor: pointer;"></div>
+                        </div>
+                    </div>
+                    <div class="but">
+                        <span class="syq" @click='nowIndex--'></span>
+                        <span :class="{startMusic:start}" @click='start=!start'></span>
+                        <span class="xyq" @click='nowIndex++'></span>
+                        <span class="pattern"></span>
+                        <span :style="{'background-position-y':muted? '-183px' :'-145px' }"
+                            @click='muted=!muted'></span>
+                    </div>
+                    <div class="volume" @click.self='volume' ref="volume">
+                        <div class="dq-volume" @click.self='volume' ref='dq-volume'>
+                            <div class="round-volume" ref="round-volume" @mousedown.self='volumeMousedown'></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="but">
-                <span class="syq"></span>
-                <span class="bofang"></span>
-                <span class="xyq"></span>
-                <span class="pattern"></span>
-                <span class="jyin"></span>
-            </div>
-            <div class="volume">
-                <div class="dq-volume">
-                    <div class="circle-volume"></div>
-                </div>
+            <div class="clearBoth"></div>
+            <div class="boxBottom">
+                <ul class="list">
+                    <li v-for='(item,index) in musics' :class='{active:item.src===audioSrc}'
+                        @click='changeMusic(item,index)' :key='index'>{{item.music}}---{{item.name}}</li>
+                </ul>
             </div>
         </div>
+        <audio :src="audioSrc" ref='audio' @canplay='loading' @timeupdate='playing'></audio>
+
     </div>
-    <div class="clearBoth"></div>
-    <div class="boxBottom">
-        <ul class="list">
-        </ul>
-    </div>
-</div>
-<audio src=""></audio>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="maMusic.js"></script>
+    <script src="./maMusic.js"></script>
 </body>
+
 </html>
